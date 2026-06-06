@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veora TV · Política de Privacidad</title>
+<meta name="description" content="Política de privacidad de la aplicación Veora TV.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0B0E; --surface:#13151B; --line:#23262F;
+    --gold:#E7B85B; --gold-dim:#9A7B3A;
+    --text:#E8EAEF; --muted:#9AA0AC; --faint:#6B7280;
+    --display:'Outfit',system-ui,sans-serif;
+    --body:'Newsreader',Georgia,serif;
+    --maxw:720px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:var(--body); font-size:18px; line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+    position:relative; overflow-x:hidden;
+  }
+  /* halo dorado superior, como el fondo de la app */
+  body::before{
+    content:""; position:fixed; inset:0 0 auto 0; height:520px;
+    background:radial-gradient(120% 380px at 50% -120px, rgba(231,184,91,.16), transparent 70%);
+    pointer-events:none; z-index:0;
+  }
+  .wrap{position:relative; z-index:1; max-width:var(--maxw); margin:0 auto; padding:0 24px 96px}
+
+  /* ---- cabecera ---- */
+  header{padding:64px 0 40px; text-align:left}
+  .brand{font-family:var(--display); font-weight:800; font-size:clamp(34px,7vw,52px); letter-spacing:-.02em; line-height:1}
+  .brand .v{color:var(--gold)}
+  .brand .t{color:var(--muted); font-weight:700}
+  .doc-kind{
+    font-family:var(--display); font-weight:500; text-transform:uppercase;
+    letter-spacing:.28em; font-size:12px; color:var(--gold-dim); margin-top:22px;
+  }
+  h1{font-family:var(--display); font-weight:700; font-size:clamp(26px,5vw,34px); letter-spacing:-.01em; margin-top:6px}
+  .updated{color:var(--faint); font-size:15px; margin-top:14px}
+
+  /* ---- toggle idioma ---- */
+  .lang{position:fixed; top:18px; right:18px; z-index:5; display:flex; gap:4px;
+    background:rgba(19,21,27,.8); border:1px solid var(--line); border-radius:999px; padding:4px; backdrop-filter:blur(8px)}
+  .lang button{
+    font-family:var(--display); font-weight:600; font-size:13px; letter-spacing:.04em;
+    color:var(--muted); background:none; border:0; padding:6px 14px; border-radius:999px; cursor:pointer; transition:.2s}
+  .lang button.on{background:var(--gold); color:#0A0B0E}
+
+  /* ---- secciones ---- */
+  section{margin-top:40px; padding-left:18px; border-left:2px solid var(--line)}
+  section:hover{border-left-color:var(--gold-dim)}
+  h2{
+    font-family:var(--display); font-weight:700; font-size:20px; letter-spacing:-.01em;
+    color:#fff; margin-bottom:10px; scroll-margin-top:24px;
+  }
+  h2 .num{color:var(--gold); font-size:14px; vertical-align:super; margin-right:8px; font-weight:600}
+  p{margin:10px 0; color:var(--text)}
+  p.lead{font-size:20px; color:var(--muted)}
+  ul{margin:10px 0 10px 0; padding-left:22px}
+  li{margin:7px 0}
+  li::marker{color:var(--gold-dim)}
+  a{color:var(--gold); text-decoration:none; border-bottom:1px solid var(--gold-dim)}
+  a:hover{border-bottom-color:var(--gold)}
+  strong{color:#fff; font-weight:600}
+  .ph{background:rgba(231,184,91,.14); color:var(--gold); padding:1px 7px; border-radius:5px; font-family:var(--display); font-size:.85em; font-weight:600}
+
+  footer{margin-top:64px; padding-top:28px; border-top:1px solid var(--line); color:var(--faint); font-size:15px}
+  footer .name{font-family:var(--display); color:var(--muted); font-weight:600}
+
+  [data-lang]{display:none}
+  body.es [data-lang="es"]{display:block}
+  body.en [data-lang="en"]{display:block}
+  /* inline variants for header bits */
+  header [data-lang]{display:none}
+  body.es header [data-lang="es"]{display:block}
+  body.en header [data-lang="en"]{display:block}
+
+  /* aparición suave */
+  .wrap > *{animation:rise .6s ease both}
+  .wrap > section:nth-child(n){animation-delay:.05s}
+  @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body class="es">
+
+<nav class="lang" aria-label="Idioma / Language">
+  <button id="btn-es" class="on" onclick="setLang('es')">ES</button>
+  <button id="btn-en" onclick="setLang('en')">EN</button>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="brand"><span class="v">Veora</span> <span class="t">TV</span></div>
+    <div class="doc-kind" data-lang="es">Política de Privacidad</div>
+    <div class="doc-kind" data-lang="en">Privacy Policy</div>
+    <h1 data-lang="es">Política de Privacidad</h1>
+    <h1 data-lang="en">Privacy Policy</h1>
+    <div class="updated" data-lang="es">Última actualización: 6 de junio de 2026</div>
+    <div class="updated" data-lang="en">Last updated: June 6, 2026</div>
+  </header>
+
+  <!-- ============ ESPAÑOL ============ -->
+  <div data-lang="es">
+
+    <section>
+      <p class="lead">Esta política explica qué datos trata la aplicación <strong>Veora TV</strong> y cómo se protegen. Veora TV es una app de televisión en directo que reúne canales públicos y de libre distribución de todo el mundo.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">01</span>Responsable</h2>
+      <p>El responsable del tratamiento es Tap Tap Droid, desarrollador de la aplicación Veora TV. Para cualquier consulta sobre privacidad puedes escribir a <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span>Resumen</h2>
+      <p>Veora TV <strong>no requiere registro ni cuenta de usuario</strong> y no te pedimos datos personales para usarla. La app reproduce señales de televisión servidas por terceros (emisoras públicas) y muestra publicidad para sostener el servicio. Los únicos tratamientos de datos provienen de los servicios de Google que integramos (Firebase y AdMob) y de la conexión a los servidores de las emisoras.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span>Datos que se tratan</h2>
+      <ul>
+        <li><strong>Reproducción de canales.</strong> Al reproducir un canal, tu dispositivo se conecta directamente a los servidores de la emisora o su CDN. Esos terceros pueden recibir tu <strong>dirección IP</strong> y datos técnicos básicos de la conexión, conforme a sus propias políticas.</li>
+        <li><strong>Notificaciones push.</strong> Si aceptas recibir notificaciones, usamos <strong>Firebase Cloud Messaging</strong>, que genera un identificador (token) del dispositivo para poder enviártelas. No lo asociamos a tu identidad.</li>
+        <li><strong>Publicidad.</strong> Mostramos anuncios mediante <strong>Google AdMob</strong>, que puede tratar identificadores del dispositivo y de publicidad para mostrar anuncios y medir su rendimiento (ver sección 4).</li>
+        <li><strong>Catálogo de canales.</strong> La lista de canales se descarga desde <strong>Firebase</strong>. Es una lectura de datos; no se envía información personal tuya.</li>
+        <li><strong>Diagnóstico.</strong> Los servicios de Google que usamos pueden recopilar datos técnicos y de uso (p. ej. fallos, rendimiento) según sus políticas.</li>
+      </ul>
+      <p>No vendemos datos personales ni creamos perfiles de identidad de los usuarios.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span>Publicidad y consentimiento</h2>
+      <p>En el <strong>Espacio Económico Europeo, Reino Unido y Suiza</strong>, antes de mostrar anuncios te pedimos tu consentimiento mediante la plataforma de consentimiento de Google (UMP), conforme al RGPD y al marco de transparencia y consentimiento del IAB (TCF).</p>
+      <ul>
+        <li>Si <strong>aceptas</strong>, podrás ver anuncios personalizados.</li>
+        <li>Si <strong>rechazas</strong>, se mostrarán anuncios no personalizados.</li>
+        <li>Puedes <strong>cambiar tu elección</strong> en cualquier momento desde las opciones de privacidad de la app.</li>
+      </ul>
+      <p>Cómo usa Google los datos en sus servicios: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span>Servicios de terceros</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> (base de datos en tiempo real y mensajería).</li>
+        <li><strong>Google AdMob</strong> (publicidad).</li>
+        <li><strong>Emisoras y CDNs</strong> que sirven las señales de televisión.</li>
+      </ul>
+      <p>El tratamiento por parte de Google se rige por su política de privacidad: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span>Permisos</h2>
+      <p>La app utiliza: <strong>acceso a Internet</strong> y <strong>estado de la red</strong> (para reproducir), y <strong>notificaciones</strong> (opcional, Android 13+). Puedes revocar las notificaciones desde los ajustes del sistema cuando quieras.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span>Menores</h2>
+      <p>Veora TV no está dirigida a menores de edad ni recopila conscientemente datos de menores. Si crees que un menor nos ha facilitado datos, escríbenos y los eliminaremos.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span>Conservación y transferencias</h2>
+      <p>No almacenamos datos personales en nuestros propios servidores. Los datos tratados por Google se conservan y, en su caso, se transfieren internacionalmente según las políticas y garantías de Google.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">09</span>Tus derechos</h2>
+      <p>Si resides en la UE/EEE tienes derecho a acceder, rectificar, suprimir, limitar u oponerte al tratamiento de tus datos, así como a retirar el consentimiento publicitario (desde las opciones de privacidad de la app). Para ejercerlos, escríbenos a <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>. También puedes reclamar ante tu autoridad de protección de datos (en España, la AEPD).</p>
+    </section>
+
+    <section>
+      <h2><span class="num">10</span>Cambios</h2>
+      <p>Podemos actualizar esta política. Publicaremos la versión vigente en esta misma página con su fecha de actualización.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">11</span>Contacto</h2>
+      <p>Para cualquier cuestión sobre esta política: <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>.</p>
+    </section>
+
+  </div>
+
+  <!-- ============ ENGLISH ============ -->
+  <div data-lang="en">
+
+    <section>
+      <p class="lead">This policy explains what data the <strong>Veora TV</strong> app processes and how it is protected. Veora TV is a live‑TV app that gathers public and freely distributable channels from around the world.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">01</span>Who we are</h2>
+      <p>The data controller is Tap Tap Droid, developer of the Veora TV app. For any privacy enquiry, contact <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">02</span>Summary</h2>
+      <p>Veora TV <strong>requires no registration or user account</strong>, and we do not ask you for personal data to use it. The app plays TV signals served by third parties (public broadcasters) and shows advertising to support the service. The only data processing comes from the Google services we integrate (Firebase and AdMob) and from connecting to the broadcasters' servers.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">03</span>Data processed</h2>
+      <ul>
+        <li><strong>Channel playback.</strong> When you play a channel, your device connects directly to the broadcaster's server or CDN. Those third parties may receive your <strong>IP address</strong> and basic technical connection data, under their own policies.</li>
+        <li><strong>Push notifications.</strong> If you allow notifications, we use <strong>Firebase Cloud Messaging</strong>, which generates a device identifier (token) to deliver them. It is not linked to your identity.</li>
+        <li><strong>Advertising.</strong> We show ads via <strong>Google AdMob</strong>, which may process device and advertising identifiers to serve ads and measure their performance (see section 4).</li>
+        <li><strong>Channel catalogue.</strong> The channel list is downloaded from <strong>Firebase</strong>. This is a data read; no personal data of yours is sent.</li>
+        <li><strong>Diagnostics.</strong> The Google services we use may collect technical and usage data (e.g. crashes, performance) under their policies.</li>
+      </ul>
+      <p>We do not sell personal data or build identity profiles of users.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">04</span>Advertising &amp; consent</h2>
+      <p>In the <strong>European Economic Area, the UK and Switzerland</strong>, before showing ads we ask for your consent through Google's consent platform (UMP), in line with the GDPR and the IAB Transparency &amp; Consent Framework (TCF).</p>
+      <ul>
+        <li>If you <strong>accept</strong>, you may see personalised ads.</li>
+        <li>If you <strong>decline</strong>, non‑personalised ads are shown.</li>
+        <li>You can <strong>change your choice</strong> at any time from the app's privacy options.</li>
+      </ul>
+      <p>How Google uses data across its services: <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">policies.google.com/technologies/partner-sites</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">05</span>Third‑party services</h2>
+      <ul>
+        <li><strong>Google Firebase</strong> (realtime database and messaging).</li>
+        <li><strong>Google AdMob</strong> (advertising).</li>
+        <li><strong>Broadcasters and CDNs</strong> serving the TV signals.</li>
+      </ul>
+      <p>Google's processing is governed by its privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">06</span>Permissions</h2>
+      <p>The app uses: <strong>internet access</strong> and <strong>network state</strong> (to play), and <strong>notifications</strong> (optional, Android 13+). You can revoke notifications from system settings at any time.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">07</span>Children</h2>
+      <p>Veora TV is not directed to children and does not knowingly collect data from minors. If you believe a minor has provided us data, contact us and we will delete it.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">08</span>Retention &amp; transfers</h2>
+      <p>We do not store personal data on our own servers. Data processed by Google is retained and, where applicable, transferred internationally under Google's policies and safeguards.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">09</span>Your rights</h2>
+      <p>If you reside in the EU/EEA, you have the right to access, rectify, erase, restrict or object to the processing of your data, and to withdraw advertising consent (from the app's privacy options). To exercise them, contact <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>. You may also lodge a complaint with your data protection authority.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">10</span>Changes</h2>
+      <p>We may update this policy. The current version will be published on this page with its update date.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">11</span>Contact</h2>
+      <p>For any question about this policy: <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>.</p>
+    </section>
+
+  </div>
+
+  <footer>
+    <div class="name">Veora TV · Tap Tap Droid</div>
+    <div data-lang="es" style="display:block">© 2026 · Todos los derechos reservados.</div>
+    <div data-lang="en" style="display:none">© 2026 · All rights reserved.</div>
+  </footer>
+
+</div>
+
+<script>
+  function setLang(l){
+    document.body.className = l;
+    document.documentElement.lang = l;
+    document.getElementById('btn-es').classList.toggle('on', l==='es');
+    document.getElementById('btn-en').classList.toggle('on', l==='en');
+    // footer line visibility (tienen display inline forzado)
+    document.querySelectorAll('footer [data-lang]').forEach(function(el){
+      el.style.display = (el.getAttribute('data-lang')===l) ? 'block' : 'none';
+    });
+  }
+  // idioma inicial según el navegador (es por defecto)
+  setLang((navigator.language||'es').toLowerCase().startsWith('en') ? 'en' : 'es');
+</script>
+
+</body>
+</html>

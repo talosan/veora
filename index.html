@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veora TV · Televisión en directo de todo el mundo</title>
+<meta name="description" content="Veora TV — canales de televisión públicos y de libre distribución de todo el mundo, en directo. Para Android y Android Automotive.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700;800&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0A0B0E; --line:#23262F; --gold:#E7B85B; --gold-dim:#9A7B3A;
+    --text:#E8EAEF; --muted:#9AA0AC; --faint:#6B7280;
+    --display:'Outfit',system-ui,sans-serif; --body:'Newsreader',Georgia,serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg); color:var(--text); font-family:var(--body);
+    min-height:100vh; display:flex; flex-direction:column;
+    -webkit-font-smoothing:antialiased; position:relative; overflow-x:hidden;
+  }
+  body::before{
+    content:""; position:fixed; inset:0 0 auto 0; height:620px;
+    background:radial-gradient(130% 460px at 50% -140px, rgba(231,184,91,.18), transparent 70%);
+    pointer-events:none;
+  }
+  .wrap{position:relative; z-index:1; flex:1; width:100%; max-width:760px; margin:0 auto;
+    padding:0 24px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:6px}
+
+  .brand{font-family:var(--display); font-weight:800; font-size:clamp(46px,12vw,84px);
+    letter-spacing:-.03em; line-height:1; animation:rise .6s ease both}
+  .brand .v{color:var(--gold)} .brand .t{color:var(--muted); font-weight:700}
+
+  .tagline{font-size:clamp(19px,3.6vw,24px); color:var(--muted); margin-top:18px;
+    animation:rise .6s .08s ease both}
+  .desc{max-width:520px; color:var(--text); margin-top:18px; line-height:1.7;
+    animation:rise .6s .16s ease both}
+
+  .cta{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:34px;
+    animation:rise .6s .24s ease both}
+  .btn{font-family:var(--display); font-weight:600; font-size:15px; letter-spacing:.02em;
+    padding:13px 26px; border-radius:999px; text-decoration:none; transition:.2s; border:1px solid transparent}
+  .btn.primary{background:var(--gold); color:#0A0B0E}
+  .btn.primary:hover{background:#f0c873; transform:translateY(-1px)}
+  .btn.ghost{border-color:var(--line); color:var(--muted)}
+  .btn.ghost:hover{border-color:var(--gold-dim); color:var(--text)}
+
+  .features{display:flex; gap:14px; flex-wrap:wrap; justify-content:center; margin-top:52px;
+    animation:rise .6s .32s ease both}
+  .chip{font-family:var(--display); font-weight:500; font-size:13px; letter-spacing:.04em;
+    color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:8px 16px}
+  .chip b{color:var(--gold-dim); font-weight:600}
+
+  footer{position:relative; z-index:1; text-align:center; color:var(--faint); font-size:14px;
+    padding:28px 24px; border-top:1px solid var(--line)}
+  footer a{color:var(--gold-dim); text-decoration:none}
+  footer a:hover{color:var(--gold)}
+  footer .name{font-family:var(--display); color:var(--muted); font-weight:600}
+
+  @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="brand"><span class="v">Veora</span> <span class="t">TV</span></div>
+    <p class="tagline">Televisión en directo de todo el mundo</p>
+    <p class="desc">Canales públicos y de libre distribución de todo el planeta, en directo y en abierto. Sin registro, en tu idioma, para Android y Android Automotive.</p>
+
+    <div class="cta">
+      <a class="btn ghost" href="./privacy/">Política de privacidad</a>
+      <a class="btn primary" href="mailto:appstaptap100@gmail.com">Contacto</a>
+    </div>
+
+    <div class="features">
+      <span class="chip"><b>·</b> Legal y gratis</span>
+      <span class="chip"><b>·</b> Multi-idioma</span>
+      <span class="chip"><b>·</b> Sin registro</span>
+      <span class="chip"><b>·</b> Android Automotive</span>
+    </div>
+  </div>
+
+  <footer>
+    <span class="name">Veora TV</span> · Tap Tap Droid · <a href="mailto:appstaptap100@gmail.com">appstaptap100@gmail.com</a>
+  </footer>
+
+</body>
+</html>
